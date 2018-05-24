@@ -1,0 +1,160 @@
+﻿<div id="page-container" class="sidebar-mini sidebar-o side-scroll header-navbar-fixed">
+
+
+    <!-- Header -->
+    <header id="header-navbar" class="content-mini content-mini-full">
+
+
+        <!-- Header Navigation Left -->
+        <ul class="nav-header pull-left">
+            <li>
+                <!-- Opens the Apps modal found at the bottom of the page, before including JS code -->
+                <button class="btn btn-default pull-right" data-toggle="modal" data-target="#apps-modal" type="button">
+                    <i class="fa fa-navicon"></i>
+                </button>
+            </li>
+        </ul>
+
+        <ul class="nav nav-header pull-right">
+            <li>
+                <h4>CMSRIO</h4>
+            </li>
+
+        </ul>
+        <!-- END Header Navigation Left -->
+
+
+
+
+
+    </header>
+
+
+    <!-- END Header -->
+    <!--Modal header-->
+    <div class="modal fade" id="apps-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-sm modal-dialog modal-dialog-top">
+            <div class="modal-content">
+                <!-- Apps Block -->
+                <div class="block block-themed block-transparent">
+                    <div class="block-header bg-primary-dark">
+                        <ul class="block-options">
+                            <li>
+                                <button data-dismiss="modal" type="button"><i class="si si-close"></i></button>
+                            </li>
+                        </ul>
+                        <h3 class="block-title">Menu</h3>
+                    </div>
+                    <div class="block-content">
+                        <div class="row text-center">
+                            <div class="col-xs-6">
+                                <a class="block block-rounded" href="@Url.Action("Index","Home")">
+                                    <div class="block-content text-white bg-default">
+                                        <i class="fa fa-heartbeat fa-3x"></i>
+                                        <div class="font-w600 push-15-t push-15">Inicio</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-xs-6">
+                                <a class="block block-rounded" href="@Url.Action("Sobre","Home")">
+                                    <div class="block-content text-white bg-modern">
+                                        <i class="si si-info fa-3x"></i>
+                                        <div class="font-w600 push-15-t push-15">Sobre</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END Apps Block -->
+            </div>
+        </div>
+    </div>
+    <!--Modal header-->
+
+
+
+    <main id="main-container">
+
+        <div class="content content-boxed">
+            <!-- Frequently Asked Questions -->
+            <div class="block">
+                <div class="block-content block-content-full block-content-narrow">
+
+
+
+                    <div id="faq4" class="panel-group">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#faq4" href="#faq4_q1"><i class="fa fa-envelope-o"></i> Contact Us</a>
+                                </h3>
+                            </div>
+                            <div id="faq4_q1" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    <form class="form-horizontal push-10-t" action="base_pages_faq.html" method="post" onsubmit="return false;">
+                                        <div class="form-group">
+                                            <div class="col-xs-6 col-sm-4">
+                                                <div class="form-material form-material-primary">
+                                                    <input class="form-control" type="text" id="faq-contact-firstname" name="faq-contact-firstname" placeholder="Enter your firstname..">
+                                                    <label for="faq-contact-firstname">Firstname</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6 col-sm-4">
+                                                <div class="form-material form-material-primary">
+                                                    <input class="form-control" type="text" id="faq-contact-lastname" name="faq-contact-lastname" placeholder="Enter your lastname..">
+                                                    <label for="faq-contact-lastname">Lastname</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-8">
+                                                <div class="form-material form-material-primary input-group">
+                                                    <input class="form-control" type="email" id="faq-contact-email" name="faq-contact-email" placeholder="Enter your email..">
+                                                    <label for="faq-contact-email">Email</label>
+                                                    <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-4">
+                                                <div class="form-material form-material-primary">
+                                                    <select class="form-control" id="faq-contact-subject" name="faq-contact-subject" size="1">
+                                                        <option value="1">Support</option>
+                                                        <option value="2">Billing</option>
+                                                        <option value="3">Management</option>
+                                                        <option value="4">Feature Request</option>
+                                                    </select>
+                                                    <label for="faq-contact-subject">Where?</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-xs-12">
+                                                <div class="form-material form-material-primary">
+                                                    <textarea class="form-control" id="faq-contact-msg" name="faq-contact-msg" rows="7" placeholder="Enter your message.."></textarea>
+                                                    <label for="faq-contact-msg">Message</label>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group remove-margin-b">
+                                            <div class="col-xs-12">
+                                                <button class="btn btn-sm btn-primary" type="submit"><i class="fa fa-send push-5-r"></i> Send Message</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+
+
+
+</div>

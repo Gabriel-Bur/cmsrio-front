@@ -1,0 +1,89 @@
+﻿<div id="page-container" class="sidebar-mini sidebar-o side-scroll header-navbar-fixed">
+
+
+    <!-- Header -->
+    <header id="header-navbar" class="content-mini content-mini-full">
+
+
+        <!-- Header Navigation Left -->
+        <ul class="nav-header pull-left">
+            <li>
+                <!-- Opens the Apps modal found at the bottom of the page, before including JS code -->
+                <button class="btn btn-default pull-right" data-toggle="modal" data-target="#apps-modal" type="button">
+                    <i class="fa fa-navicon"></i>
+                </button>
+            </li>
+        </ul>
+
+        <ul class="nav nav-header pull-right">
+            <li>
+                <h4>CMSRIO</h4>
+            </li>
+
+        </ul>
+        <!-- END Header Navigation Left -->
+
+
+
+
+
+    </header>
+
+
+    <!-- END Header -->
+    <!--Modal header-->
+    <div class="modal fade" id="apps-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-sm modal-dialog modal-dialog-top">
+            <div class="modal-content">
+                <!-- Apps Block -->
+                <div class="block block-themed block-transparent">
+                    <div class="block-header bg-primary-dark">
+                        <ul class="block-options">
+                            <li>
+                                <button data-dismiss="modal" type="button"><i class="si si-close"></i></button>
+                            </li>
+                        </ul>
+                        <h3 class="block-title">Menu</h3>
+                    </div>
+                    <div class="block-content">
+                        <div class="row text-center">
+                            <div class="col-xs-6">
+                                <a class="block block-rounded" href="@Url.Action("Sobre","Home")">
+                                    <div class="block-content text-white bg-default">
+                                        <i class="si si-info fa-3x"></i>
+                                        <div class="font-w600 push-15-t push-15">Sobre</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-xs-6">
+                                <a class="block block-rounded" href="@Url.Action("Contato","Home")">
+                                    <div class="block-content text-white bg-modern">
+                                        <i class="si si-earphones-alt fa-3x"></i>
+                                        <div class="font-w600 push-15-t push-15">Contato</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END Apps Block -->
+            </div>
+        </div>
+    </div>
+    <!--Modal header-->
+
+
+    <main id="main-container">    
+        <div id="js-map-full"></div>
+    </main>
+
+
+
+
+</div>
+
+
+
+
+
+

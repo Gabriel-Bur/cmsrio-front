@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="author" content="GabrielBur">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,700%7COpen+Sans:300,400,400italic,600,700">
+
+
+
+    <title>CMSRIO</title>
+    @Styles.Render("~/Content/assets/oneui")
+
+
+
+
+
+</head>
+<body>
+
+    <div>
+        @RenderBody()
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/modernizr")
+
+
+    <!--One UI JS-->
+    @Scripts.Render("~/Content/assets/js/oneuijs")
+
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfnI7MmtvB2FHoMciSAsSRqrWK03RUN2E"></script>
+
+
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>
