@@ -14,12 +14,9 @@ var BaseCompMapsFull = function () {
 
 
 
-    function bindInfoWindow(marker, map, infowindow) {
+    function bindInfoWindow(marker, map, infowindow, logradouro, idH) {
 
-        var content = '<div><div><p><h5>' + marker.title +'</h5></p></div><div><button class="btn btn-primary" href="#">Detalhes</button></div></div>';
-
-
-
+        var content = '<div><div><p><h5>' + marker.title + '</h5></p></div><div><button class="btn btn-primary" href="#">Detalhes</button></div></div>';
 
 
         google.maps.event.addListener(marker, 'click',
@@ -82,13 +79,15 @@ var BaseCompMapsFull = function () {
                 $.each(json,
                     function (key, data) {
 
+                        //pegas os dados do json pra cada hospital e cria um marker
                         var marker = new google.maps.Marker({
                             position: new google.maps.LatLng(data.Latitude, data.Longitude),
                             map: map123,
-                            title: data.Nome                           
+                            title: data.Nome,
                         });
 
-                        bindInfoWindow(marker, map123, infoWindow);
+
+                        bindInfoWindow(marker, map123, infoWindow);;
 
                     }
                 );
