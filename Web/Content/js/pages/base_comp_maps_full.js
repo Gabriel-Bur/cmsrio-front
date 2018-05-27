@@ -6,8 +6,36 @@
 var BaseCompMapsFull = function () {
     // Gmaps.js, for more examples you can check out https://hpneo.github.io/gmaps/
 
+
+
+
+
+
+
+
+
+    function bindInfoWindow(marker, map, infowindow) {
+
+        var content = '<div><div><p><h5>' + marker.title +'</h5></p></div><div><button class="btn btn-primary" href="#">Detalhes</button></div></div>';
+
+
+
+
+
+        google.maps.event.addListener(marker, 'click',
+            function () {
+                infowindow.setContent(content);
+                infowindow.open(map, marker);
+            }
+        );
+    }
+
+
     // Init Full Map
     var initMapFull = function () {
+
+        var urlPath = "https://cmsrio.azurewebsites.net/api/Hospital?type=json";
+        var infoWindow = new google.maps.InfoWindow();
 
         var $mainCon = jQuery('#main-container');
         var $mlat = -22.8769124;
@@ -48,13 +76,43 @@ var BaseCompMapsFull = function () {
             }, 150);
         });
 
+
+        $.getJSON(urlPath,
+            function (json) {
+                $.each(json,
+                    function (key, data) {
+
+                        var marker = new google.maps.Marker({
+                            position: new google.maps.LatLng(data.Latitude, data.Longitude),
+                            map: map123,
+                            title: data.Nome                           
+                        });
+
+                        bindInfoWindow(marker, map123, infoWindow);
+
+                    }
+                );
+            }
+        );
+
+        var map123 = new google.maps.Map(document.getElementById("js-map-full"), {
+            zoom: 10,
+            center: new google.maps.LatLng(-22.8769124, -43.3189519),
+            MapTypeId: google.maps.MapTypeId.ROADMAP,
+            fullscreenControl: false,
+            zoomControl: false,
+            mapTypeControl: false,
+            streetViewControl: false,
+        });
+
+
     };
 
     return {
         init: function () {
             // Init Full Map
             initMapFull();
-           
+
         }
     };
 }();
