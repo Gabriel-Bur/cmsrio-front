@@ -14,12 +14,9 @@ var BaseCompMapsFull = function () {
 
 
 
-    function bindInfoWindow(marker, map, infowindow) {
+    function bindInfoWindow(marker, map, infowindow, idH) {
 
-        var content = '<div><div><p><h5>' + marker.title +'</h5></p></div><div><button class="btn btn-primary" href="#">Detalhes</button></div></div>';
-
-
-
+        var content = '<div><div><p><h5>' + marker.title + '</h5></p></div><div><a href="Hospital/Details/' + idH + '"><button class="btn btn-minw btn-rounded btn-primary center-block">Detalhes</button></a></div></div>';
 
 
         google.maps.event.addListener(marker, 'click',
@@ -38,8 +35,8 @@ var BaseCompMapsFull = function () {
         var infoWindow = new google.maps.InfoWindow();
 
         var $mainCon = jQuery('#main-container');
-        var $mlat = -22.8769124;
-        var $mlong = -43.3189519;
+        var $mlat = -22.9271976;
+        var $mlong = -43.2096036;
         var $rTimeout;
 
         // Set #main-container position to be relative
@@ -59,12 +56,14 @@ var BaseCompMapsFull = function () {
             div: '#js-map-full',
             lat: $mlat,
             lng: $mlong,
-            zoom: 11
+            zoom: 13
         });
 
 
         // Set map type
         $mapFull.setMapTypeId(google.maps.MapTypeId.ROADMAP);
+
+
 
         // Resize and center the map on browser window resize
         jQuery(window).on('resize orientationchange', function () {
@@ -82,13 +81,17 @@ var BaseCompMapsFull = function () {
                 $.each(json,
                     function (key, data) {
 
+                        //pegas os dados do json pra cada hospital e cria um marker
                         var marker = new google.maps.Marker({
                             position: new google.maps.LatLng(data.Latitude, data.Longitude),
                             map: map123,
-                            title: data.Nome                           
+                            title: data.Nome,
                         });
 
-                        bindInfoWindow(marker, map123, infoWindow);
+                        var idH = data.IDHospital;
+
+
+                        bindInfoWindow(marker, map123, infoWindow,idH);;
 
                     }
                 );
@@ -96,8 +99,8 @@ var BaseCompMapsFull = function () {
         );
 
         var map123 = new google.maps.Map(document.getElementById("js-map-full"), {
-            zoom: 10,
-            center: new google.maps.LatLng(-22.8769124, -43.3189519),
+            zoom: 13,
+            center: new google.maps.LatLng(-22.9271976, -43.2096036),
             MapTypeId: google.maps.MapTypeId.ROADMAP,
             fullscreenControl: false,
             zoomControl: false,
