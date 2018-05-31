@@ -17,13 +17,21 @@ namespace Web.Controllers
         public async Task<ActionResult> Details(int id)
         {
             string pagina = "https://cmsrio.azurewebsites.net/api/Hospital/" + id + "?type=json";
+            string pagina2 = "https://cmsrio.azurewebsites.net/api/Avaliacao/" + id + "?type=json";
 
             HttpResponseMessage response = await client.GetAsync(pagina.ToString());
             response.EnsureSuccessStatusCode();
             string result = response.Content.ReadAsStringAsync().Result;
             HospitalViewModel Hospital = Newtonsoft.Json.JsonConvert.DeserializeObject<HospitalViewModel>(result);
 
-            return View(Hospital);
+            HttpResponseMessage response2 = await client.GetAsync(pagina2.ToString());
+            response.EnsureSuccessStatusCode();
+            string result2 = response2.Content.ReadAsStringAsync().Result;
+            List<AvaliacaoViewModel> avaliacoes = Newtonsoft.Json.JsonConvert.DeserializeObject<List<AvaliacaoViewModel>>(result2);
+
+
+
+            return View(new Tuple<HospitalViewModel,List<AvaliacaoViewModel>>(Hospital,avaliacoes));
         }
 
     }

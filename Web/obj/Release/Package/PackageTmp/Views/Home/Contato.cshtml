@@ -1,4 +1,9 @@
-﻿<div id="page-container" class="sidebar-mini sidebar-o side-scroll header-navbar-fixed">
+﻿@model Web.Models.ContatoViewModel
+
+
+
+
+<div id="page-container" class="sidebar-mini sidebar-o side-scroll header-navbar-fixed">
 
 
     <!-- Header -->
@@ -48,7 +53,7 @@
                     <div class="block-content">
                         <div class="row text-center">
                             <div class="col-xs-6">
-                                <a class="block block-rounded" href="@Url.Action("Index","Home")">
+                                <a class="block block-rounded" href="@Url.Action("Index", "Home")">
                                     <div class="block-content text-white bg-default">
                                         <i class="fa fa-heartbeat fa-3x"></i>
                                         <div class="font-w600 push-15-t push-15">Inicio</div>
@@ -56,7 +61,7 @@
                                 </a>
                             </div>
                             <div class="col-xs-6">
-                                <a class="block block-rounded" href="@Url.Action("Sobre","Home")">
+                                <a class="block block-rounded" href="@Url.Action("Sobre", "Home")">
                                     <div class="block-content text-white bg-modern">
                                         <i class="si si-info fa-3x"></i>
                                         <div class="font-w600 push-15-t push-15">Sobre</div>
@@ -71,90 +76,103 @@
         </div>
     </div>
     <!--Modal header-->
-
-
+    <!--About us Content start-->
 
     <main id="main-container">
+        <div class="bg-white">
+            <section class="content content-full content-boxed">
+                <!-- Section Content -->
+                <div class="row push-20-t push-20">
+                    <div class="col-sm-8 col-sm-offset-2">
 
-        <div class="content content-boxed">
-            <!-- Frequently Asked Questions -->
-            <div class="block">
-                <div class="block-content block-content-full block-content-narrow">
+                        <!-- Introduction -->
+                        <h2 class="h3 font-w600 push-30-t push">Contato</h2>
 
-
-
-                    <div id="faq4" class="panel-group">
                         <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#faq4" href="#faq4_q1"><i class="fa fa-envelope-o"></i> Contact Us</a>
-                                </h3>
-                            </div>
-                            <div id="faq4_q1" class="panel-collapse collapse in">
-                                <div class="panel-body">
-                                    <form class="form-horizontal push-10-t" action="base_pages_faq.html" method="post" onsubmit="return false;">
-                                        <div class="form-group">
-                                            <div class="col-xs-6 col-sm-4">
-                                                <div class="form-material form-material-primary">
-                                                    <input class="form-control" type="text" id="faq-contact-firstname" name="faq-contact-firstname" placeholder="Enter your firstname..">
-                                                    <label for="faq-contact-firstname">Firstname</label>
+                            <div class="block">
+                                <div class="block-header bg-gray-lighter">
+                                    <h3 class="block-title"></h3>
+                                </div>
+
+
+                                <div class="block-content block-content-full">
+
+                                    <div class="block">
+
+                                        <div class="block-content block-content-narrow">
+                                            @using (Html.BeginForm("Contato", "Home", FormMethod.Post, new { @class = "form-horizontal push-10-t" }))
+                                            {
+                                                @Html.AntiForgeryToken()
+
+                                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+                                                <div class="form-group">
+                                                    <div class="col-sm-12">
+                                                        <div class="form-material">
+                                                            @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label" })
+                                                            @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control", @placeholder = "Digite seu nome completo" } })
+                                                            @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-xs-6 col-sm-4">
-                                                <div class="form-material form-material-primary">
-                                                    <input class="form-control" type="text" id="faq-contact-lastname" name="faq-contact-lastname" placeholder="Enter your lastname..">
-                                                    <label for="faq-contact-lastname">Lastname</label>
+                                                <div class="form-group">
+                                                    <div class="col-sm-12">
+                                                        <div class="form-material">
+
+                                                            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label" })
+                                                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Digite seu email" } })
+                                                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+
+
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-sm-8">
-                                                <div class="form-material form-material-primary input-group">
-                                                    <input class="form-control" type="email" id="faq-contact-email" name="faq-contact-email" placeholder="Enter your email..">
-                                                    <label for="faq-contact-email">Email</label>
-                                                    <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-sm-4">
-                                                <div class="form-material form-material-primary">
-                                                    <select class="form-control" id="faq-contact-subject" name="faq-contact-subject" size="1">
-                                                        <option value="1">Support</option>
-                                                        <option value="2">Billing</option>
-                                                        <option value="3">Management</option>
-                                                        <option value="4">Feature Request</option>
-                                                    </select>
-                                                    <label for="faq-contact-subject">Where?</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-xs-12">
-                                                <div class="form-material form-material-primary">
-                                                    <textarea class="form-control" id="faq-contact-msg" name="faq-contact-msg" rows="7" placeholder="Enter your message.."></textarea>
-                                                    <label for="faq-contact-msg">Message</label>
+                                                <div class="form-group">
+                                                    <div class="col-sm-12">
+                                                        <div class="form-material">
+
+
+                                                            @Html.LabelFor(model => model.Comentario, htmlAttributes: new { @class = "control-label" })
+                                                            @Html.TextAreaFor(model => model.Comentario, new { @class = "form-control", @rows = "5" })
+                                                            @Html.ValidationMessageFor(model => model.Comentario, "", new { @class = "text-danger" })
+
+
+                                                        </div>
+                                                    </div>
                                                 </div>
 
-                                            </div>
+                                                <div class="form-group">
+                                                    <div class="col-sm-9">
+                                                        <div>
+                                                            <label><a data-toggle="modal" data-target="#modal-terms" href="#">Terms</a> <span class="text-danger">*</span></label>
+                                                        </div>
+                                                        <label class="css-input css-checkbox css-checkbox-primary" for="val-terms2">
+                                                            <input type="checkbox" id="val-terms2" name="val-terms2" value="1"><span></span> Eu concordo com os termos
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-xs-12">
+                                                        <button class="btn btn-rounded btn-success" type="submit">Enviar</button>
+                                                    </div>
+                                                </div>
+                                            }
                                         </div>
-                                        <div class="form-group remove-margin-b">
-                                            <div class="col-xs-12">
-                                                <button class="btn btn-sm btn-primary" type="submit"><i class="fa fa-send push-5-r"></i> Send Message</button>
-                                            </div>
-                                        </div>
-                                    </form>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
-            </div>
+                <!-- END Section Content -->
+            </section>
         </div>
-
     </main>
 
 
-
+    <!--About us Content end-->
 
 </div>

@@ -1,6 +1,4 @@
-﻿@model Web.Models.ContatoViewModel
-
-
+﻿@model Web.Models.AvaliacaoViewModel
 
 
 <div id="page-container" class="sidebar-mini sidebar-o side-scroll header-navbar-fixed">
@@ -61,10 +59,10 @@
                                 </a>
                             </div>
                             <div class="col-xs-6">
-                                <a class="block block-rounded" href="@Url.Action("Sobre", "Home")">
+                                <a class="block block-rounded" href="@Url.Action("Contato", "Home")">
                                     <div class="block-content text-white bg-modern">
-                                        <i class="si si-info fa-3x"></i>
-                                        <div class="font-w600 push-15-t push-15">Sobre</div>
+                                        <i class="si si-earphones-alt fa-3x"></i>
+                                        <div class="font-w600 push-15-t push-15">Contato</div>
                                     </div>
                                 </a>
                             </div>
@@ -86,7 +84,7 @@
                     <div class="col-sm-8 col-sm-offset-2">
 
                         <!-- Introduction -->
-                        <h2 class="h3 font-w600 push-30-t push">Contato</h2>
+                        <h2 class="h3 font-w600 push-30-t push">Deixe sua opnião aqui</h2>
 
                         <div class="panel panel-default">
                             <div class="block">
@@ -100,11 +98,20 @@
                                     <div class="block">
 
                                         <div class="block-content block-content-narrow">
-                                            @using (Html.BeginForm("Contato", "Home", FormMethod.Post, new { @class = "form-horizontal push-10-t" }))
+                                            @using (Html.BeginForm("Create", "Avaliacao", FormMethod.Post, new { @class = "form-horizontal push-10-t" }))
                                             {
                                                 @Html.AntiForgeryToken()
 
                                                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                                <div class="form-group hidden">
+                                                    <div class="col-sm-12">
+                                                        <div class="form-material">
+                                                            @Html.LabelFor(model => model.IDHospital, htmlAttributes: new { @class = "control-label" })
+                                                            @Html.EditorFor(model => model.IDHospital, new { htmlAttributes = new { @class = "form-control", @placeholder = "Digite seu nome completo" } })
+                                                            @Html.ValidationMessageFor(model => model.IDHospital, "", new { @class = "text-danger" })
+                                                        </div>
+                                                    </div>
+                                                </div>
 
 
                                                 <div class="form-group">
@@ -124,6 +131,36 @@
                                                             @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Digite seu email" } })
                                                             @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
 
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-sm-12">
+                                                        <div class="form-material">
+                                                            @Html.LabelFor(model => model.Assunto, htmlAttributes: new { @class = "control-label" })
+
+                                                            @Html.DropDownListFor(model => model.Assunto, new List<SelectListItem>
+                                                                {
+                                                                        new SelectListItem() {Text = "", Value = "", Selected=true },
+                                                                        new SelectListItem() {Text = "Consultas individuais e coletivas", Value="Consultas individuais e coletivas" },
+                                                                        new SelectListItem() {Text = "Visita domiciliar", Value="Visita domiciliar" },
+                                                                        new SelectListItem() {Text = "Saúde Bucal", Value="Saúde Bucal" },
+                                                                        new SelectListItem() {Text = "Vacinação", Value="Vacinação" },
+                                                                        new SelectListItem() {Text = "Pré-natal", Value="Pré-natal" },
+                                                                        new SelectListItem() {Text = "Exames de raios-x", Value="Exames de raios-x" },
+                                                                        new SelectListItem() {Text = "Eletrocardiograma", Value="Eletrocardiograma" },
+                                                                        new SelectListItem() {Text = "Exames laboratoriais: sangue, urina e fezes", Value="Exames laboratoriais: sangue, urina e fezes" },
+                                                                        new SelectListItem() {Text = "Ultrassonografia", Value="Ultrassonografia" },
+                                                                        new SelectListItem() {Text = "Curativos", Value="Curativos" },
+                                                                        new SelectListItem() {Text = "Vigilância em saúde", Value="Vigilância em saúde" },
+                                                                        new SelectListItem() {Text = "Teste do pezinho", Value="Teste do pezinho" },
+                                                                        new SelectListItem() {Text = "Tratamento e acompanhamento de pacientes diabéticos e hipertensos", Value="Tratamento e acompanhamento de pacientes diabéticos e hipertensos" }
+                                                                },
+                                                                        new {@class= "js-select2 form-control select2-hidden-accessible" }
+                                                                )
+
+                                                            @Html.ValidationMessageFor(model => model.Assunto, "", new { @class = "text-danger" })
 
                                                         </div>
                                                     </div>
@@ -176,3 +213,4 @@
     <!--About us Content end-->
 
 </div>
+

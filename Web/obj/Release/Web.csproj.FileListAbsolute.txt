@@ -300,3 +300,5 @@ C:\Users\cx750\Desktop\cmsrio-front\Web\obj\Release\Web.csproj.CoreCompileInputs
 C:\Users\cx750\Desktop\cmsrio-front\Web\obj\Release\Web.csproj.CopyComplete
 C:\Users\cx750\Desktop\cmsrio-front\Web\obj\Release\Web.dll
 C:\Users\cx750\Desktop\cmsrio-front\Web\obj\Release\Web.pdb
+C:\Users\cx750\Desktop\cmsrio-front\Web\bin\System.Net.Http.Formatting.dll
+C:\Users\cx750\Desktop\cmsrio-front\Web\bin\System.Net.Http.Formatting.xml
