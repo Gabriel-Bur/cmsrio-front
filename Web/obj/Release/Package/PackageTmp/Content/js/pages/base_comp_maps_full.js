@@ -31,7 +31,7 @@ var BaseCompMapsFull = function () {
     // Init Full Map
     var initMapFull = function () {
 
-        var urlPath = "https://cmsrio.azurewebsites.net/api/Hospital?type=json";
+        var urlPath = "https://cmsrio.azurewebsites.net/api/Hospital";
         var infoWindow = new google.maps.InfoWindow();
 
         var $mainCon = jQuery('#main-container');
@@ -78,8 +78,7 @@ var BaseCompMapsFull = function () {
 
         $.getJSON(urlPath,
             function (json) {
-                $.each(json,
-                    function (key, data) {
+                $.each(json,function (key, data) {
 
                         //pegas os dados do json pra cada hospital e cria um marker
                         var marker = new google.maps.Marker({
